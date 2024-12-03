@@ -1,6 +1,7 @@
 package main
 
 import (
+	utils "aoc-2024"
 	"bufio"
 	"fmt"
 	"os"
@@ -46,13 +47,6 @@ func readInput() ([]int, []int) {
 	return list1, list2
 }
 
-func absDiff(a, b int) int {
-	if a < b {
-		return b - a
-	}
-	return a - b
-}
-
 func main() {
 	startTime := time.Now()
 
@@ -75,7 +69,7 @@ func p1(list1, list2 []int) {
 	totalDiff := 0
 	// find the difference between the two lists
 	for i := 0; i < len(list1); i++ { // assumption is that the two lists are of the same length
-		diff := absDiff(list1[i], list2[i])
+		diff := utils.AbsDiff(list1[i], list2[i])
 		totalDiff += diff
 	}
 	fmt.Println("Total difference: ", totalDiff)
