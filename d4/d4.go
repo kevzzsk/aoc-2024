@@ -52,7 +52,7 @@ func main() {
 	p2(&data)
 
 	endTime := time.Since(startTime)
-	fmt.Printf("Day2 execution took: %v ms (%v µs)\n", endTime.Milliseconds(), endTime.Microseconds())
+	fmt.Printf("Day4 execution took: %v ms (%v µs)\n", endTime.Milliseconds(), endTime.Microseconds())
 }
 
 // Find XMAS horizontally, vertically, and diagonally
