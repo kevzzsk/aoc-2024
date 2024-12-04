@@ -196,27 +196,27 @@ func checkXMAS(i int, j int, data *[][]string) bool {
 	botLeft := (*data)[i-1][j-1]
 	botRight := (*data)[i-1][j+1]
 
-	// CASE 1: M.S
-	//			A
-	//		   M.S
+	// M.S
+	// .A.
+	// M.S
 	if topLeft == "M" && topRight == "S" && botLeft == "M" && botRight == "S" {
 		return true
 	}
-	// CASE 2: M.M
-	//			A
-	//		   S.S
+	// M.M
+	// .A.
+	// S.S
 	if topLeft == "M" && topRight == "M" && botLeft == "S" && botRight == "S" {
 		return true
 	}
-	// CASE 3: S.M
-	//			A
-	//		   S.M
+	// S.M
+	// .A.
+	// S.M
 	if topLeft == "S" && topRight == "M" && botLeft == "S" && botRight == "M" {
 		return true
 	}
-	// CASE 4: S.S
-	//			A
-	//		   M.M
+	// S.S
+	// .A.
+	// M.M
 	if topLeft == "S" && topRight == "S" && botLeft == "M" && botRight == "M" {
 		return true
 	}
