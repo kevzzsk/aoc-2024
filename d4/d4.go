@@ -24,9 +24,7 @@ func readInput() [][]string {
 		line := scanner.Text()
 		letters := strings.Split(line, "")
 		row := []string{}
-		for _, part := range letters {
-			row = append(row, part)
-		}
+		row = append(row, letters...)
 		data = append(data, row)
 	}
 
@@ -57,6 +55,10 @@ func main() {
 	fmt.Printf("Day2 execution took: %v ms (%v µs)\n", endTime.Milliseconds(), endTime.Microseconds())
 }
 
+// Find XMAS horizontally, vertically, and diagonally
+// approach is to find X and check surrounding for M, A, S
+// Time complexity: O(n * m) where n is the number of rows and m is the number of columns
+// Space complexity: O(1)
 func p1(data *[][]string) {
 	xmasCount := 0
 
@@ -162,6 +164,10 @@ func checkSouthEast(i int, j int, data *[][]string) bool {
 	return (*data)[i+1][j+1] == "M" && (*data)[i+2][j+2] == "A" && (*data)[i+3][j+3] == "S"
 }
 
+// find 2 MAS crossing each other diagonally
+// approach is to find A and check surrounding for M, A, S
+// Time complexity: O(n * m) where n is the number of rows and m is the number of columns
+// Space complexity: O(1)
 func p2(data *[][]string) {
 	xmasCount := 0
 
