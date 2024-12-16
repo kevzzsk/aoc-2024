@@ -22,3 +22,13 @@ func RemoveElement(slice []int, index int) []int {
 	newSlice = append(newSlice, slice[:index]...)
 	return append(newSlice, slice[index+1:]...)
 }
+
+func CountBool(b ...bool) int {
+	count := 0
+	for _, v := range b {
+		if v {
+			count += 1
+		}
+	}
+	return count
+}
