@@ -1,5 +1,11 @@
 package utils
 
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
 func AbsDiff(a, b int) int {
 	if a < b {
 		return b - a
@@ -31,4 +37,9 @@ func CountBool(b ...bool) int {
 		}
 	}
 	return count
+}
+
+func WaitForEnter() {
+	fmt.Println("Press enter to continue")
+	bufio.NewReader(os.Stdin).ReadBytes('\n')
 }
