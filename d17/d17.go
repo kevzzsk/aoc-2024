@@ -85,7 +85,7 @@ func main() {
 	// then find the next instance of 17 digits output (upper bound) - in this case its 281_474_976_710_656
 	// then iterate with exponential increase based on numbers of matches from the end of the output to the end of the program
 	// this is because the end of the output covers a larger range of possible registerA values
-	for currentRegisterA := 107_416_732_707_196; currentRegisterA < 107_416_749_484_443; currentRegisterA++ {
+	for currentRegisterA := 35_184_372_088_832; currentRegisterA < 281_474_976_710_656; currentRegisterA++ {
 
 		dcopy := device{
 			registerA:          currentRegisterA,
@@ -100,14 +100,14 @@ func main() {
 
 		// for debugging
 		if matches > 6 {
-			fmt.Println("matches:", matches, "registerA:", formatNumber(currentRegisterA), res)
+			fmt.Println("matches:", matches, "registerA:", formatNumber(currentRegisterA), converDecToBin(currentRegisterA), res)
 		}
 		if res == programStrStr {
 			fmt.Println("matches:", matches, "registerA:", formatNumber(currentRegisterA), res)
 			break
 		}
 		// for exponential increase based on matches
-		currentRegisterA += int(math.Pow(1.2, float64(16-matches)))
+		currentRegisterA += int(math.Pow(2.5, float64(16-matches)))
 	}
 
 	endTime := time.Since(startTime)
@@ -134,6 +134,14 @@ func formatNumber(n int) string {
 	}
 
 	return string(result)
+}
+
+func converDecToOctal(n int) string {
+	return strconv.FormatInt(int64(n), 8)
+}
+
+func converDecToBin(n int) string {
+	return strconv.FormatInt(int64(n), 2)
 }
 
 // check how many elements from end of arr1 and end of arr2 matches
