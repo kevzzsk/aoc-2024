@@ -107,6 +107,7 @@ func main() {
 	for _, obstacle := range m.obstacles {
 		// add in obstacle and try to find if there is a path
 		m.grid[obstacle.y][obstacle.x] = "#"
+		// improvement for part 2 is to only traverse if the block falls into current best path
 		res := m.traverse()
 		if res == -1 {
 			// no path is found
